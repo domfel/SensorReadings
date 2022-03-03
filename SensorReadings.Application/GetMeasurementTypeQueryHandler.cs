@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using SensorReadings.Application.Models;
 using SensorReadings.Domain;
@@ -18,15 +17,14 @@ namespace SensorReadings.Application
 
         public async Task<MeasurementsResponse> Execute(GetMeasurementTypeQuery query)
         {
-            var date = DateTime.Parse(query.MeasurementDate);                          
+            var date = DateTime.Parse(query.MeasurementDate);
             Enum.TryParse<ReadingType>(query.MeasurementType, out var measurementType);
-
 
             _readingArchive.InitializeArchive(query.DeviceName, date);
             await _readingArchive.SetReadingByTypeAsync(measurementType);
-            var readings =  await _readingArchive.GetReadingsAsync();
+            var readings = await _readingArchive.GetReadingsAsync();
 
             return await Task.FromResult(new MeasurementsResponse(query.DeviceName, date, readings));
-        }         
+        }
     }
 }

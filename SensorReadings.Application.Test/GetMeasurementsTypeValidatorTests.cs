@@ -16,7 +16,7 @@ namespace SensorReadings.Application.Test
             _validator = new GetMeasurementTypeValidator(_baseValidator);
         }
 
-        [TestCase("Id","2010-10-01", "Temperature", true, TestName ="Validate_ReturnsValidWhenPassingTemperatureAndValidParams")]
+        [TestCase("Id", "2010-10-01", "Temperature", true, TestName = "Validate_ReturnsValidWhenPassingTemperatureAndValidParams")]
         [TestCase("Id", "2010-10-01", "Humidity", true, TestName = "Validate_ReturnsValidWhenHumidityAndPassingValidParams")]
         [TestCase("Id", "2010-10-01", "Rainfall", true, TestName = "Validate_ReturnsValidWhenRainFallAndPassingValidParams")]
         [TestCase("Id", "2010-10-01", "", false, TestName = "Validate_ReturnsValidWhenTypeEmpty")]
@@ -27,7 +27,7 @@ namespace SensorReadings.Application.Test
             var input = new GetMeasurementTypeQuery(name, date, type);
 
             //Act
-            var result =_validator.Validate(input);
+            var result = _validator.Validate(input);
 
             //Assert
             Assert.IsNotNull(result);

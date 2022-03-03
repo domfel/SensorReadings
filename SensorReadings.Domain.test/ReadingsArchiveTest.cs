@@ -27,19 +27,18 @@ namespace SensorReadings.Domain.test
                 Temperatures = new List<Reading>() { new Reading(DateTime.Now, "-0,87") }
             };
         }
-        
+
         [SetUp]
         public void Setup()
         {
             _storage = new Mock<IStorageRepository>();
-            _archive = new ReadingsArchive(_storage.Object);            
+            _archive = new ReadingsArchive(_storage.Object);
         }
 
         [Test]
         public void InitializeArchive_InitializesArchiveWithSetupDeviceIdAndDateAndReadingSet()
         {
             //Arrange
-            
 
             //Act
             _archive.InitializeArchive(_deviceId, _date);
@@ -49,7 +48,7 @@ namespace SensorReadings.Domain.test
             Assert.AreEqual(_deviceId, _archive.DeviceId);
             Assert.AreEqual(_date, _archive.ReadingDate);
             Assert.IsInstanceOf<string>(_archive.DeviceId);
-            Assert.IsInstanceOf<DateTime>(_archive.ReadingDate);            
+            Assert.IsInstanceOf<DateTime>(_archive.ReadingDate);
         }
 
         [Test]

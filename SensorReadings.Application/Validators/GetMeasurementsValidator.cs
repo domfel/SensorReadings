@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
 using SensorReadings.Application.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SensorReadings.Application.Validators
 {
@@ -10,13 +8,12 @@ namespace SensorReadings.Application.Validators
     {
         public GetMeasurementsValidator()
         {
-            RuleFor(x => x.MeasurementDate)                
+            RuleFor(x => x.MeasurementDate)
                 .NotEmpty()
                 .Must(f => DateTime.TryParse(f, out var output));
 
-
-            RuleFor(x => x.DeviceName)                
-                .NotEmpty();                           
+            RuleFor(x => x.DeviceName)
+                .NotEmpty();
         }
     }
 }

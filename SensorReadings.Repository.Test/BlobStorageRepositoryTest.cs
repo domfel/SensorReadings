@@ -1,6 +1,4 @@
-using Azure.Storage.Blobs;
 using NUnit.Framework;
-using Moq;
 using System;
 using System.Threading.Tasks;
 using System.Linq;
@@ -9,16 +7,16 @@ using System.Collections.Generic;
 
 namespace SensorReadings.Repository.Test
 {
-    [Ignore("Requires valid connection string, can be mocked, but it requires more time")]    
+    [Ignore("Requires valid connection string, can be mocked, but it requires more time")]
     [TestFixture]
     public class BlobStorageRepositoryTest
-    {        
+    {
         private BlobStorageRepository _repository;
 
 
         [SetUp]
         public void Setup()
-        {   
+        {
             _repository = new BlobStorageRepository(
                 "ConnectionString",
                 "Container");
@@ -124,7 +122,7 @@ namespace SensorReadings.Repository.Test
 
             //Assert
             Assert.IsNotNull(result);
-            Assert.IsInstanceOf<IEnumerable<Reading>>(result);           
+            Assert.IsInstanceOf<IEnumerable<Reading>>(result);
             Assert.Greater(result.Count(), 0);
         }
 
@@ -140,7 +138,7 @@ namespace SensorReadings.Repository.Test
             var result = await _repository.GetMeasurementFromZip(deviceId, date, reading);
 
             //Assert
-            Assert.IsNotNull(result);           
+            Assert.IsNotNull(result);
             Assert.IsInstanceOf<IEnumerable<Reading>>(result);
             Assert.Greater(result.Count(), 0);
         }

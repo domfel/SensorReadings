@@ -11,8 +11,8 @@ using System.Threading.Tasks;
 namespace SensorReadings.Application.Test
 {
     public class GetMeasurementsTypeQueryHandlerTests
-    {       
-        private IQueryHandler<GetMeasurementTypeQuery,MeasurementsResponse> _handler;
+    {
+        private IQueryHandler<GetMeasurementTypeQuery, MeasurementsResponse> _handler;
         private Mock<IReadingArchive> _archive;
         public const string _deviceName = "123";
         public readonly DateTime _date = DateTime.Parse("2020-10-01");
@@ -25,7 +25,7 @@ namespace SensorReadings.Application.Test
             _handler = new GetMeasurementTypeQueryHandler(_archive.Object);
         }
 
-       [Test]
+        [Test]
         public async Task Execute_InitializesReadingArchive()
         {
             //Arragne            
@@ -48,7 +48,7 @@ namespace SensorReadings.Application.Test
             //Arragne 
             var readings = new List<Reading>() { new Reading(DateTime.Now, "-0,5") };
             var input = new GetMeasurementTypeQuery(_deviceName, _date.ToString(), _type.ToString());
-            _archive.Setup(x => x.SetReadingByTypeAsync(It.Is<ReadingType>(p => p == _type)))               
+            _archive.Setup(x => x.SetReadingByTypeAsync(It.Is<ReadingType>(p => p == _type)))
                 .Verifiable();
 
             //Act

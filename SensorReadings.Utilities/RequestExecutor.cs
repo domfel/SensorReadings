@@ -17,9 +17,8 @@ namespace SensorReadings.Utilities
             IQueryHandler<TIn, TOut> handler)
         {
             _validator = validator;
-            _handler = handler;            
+            _handler = handler;
         }
-
 
         public async Task<IActionResult> Execute(TIn input)
         {

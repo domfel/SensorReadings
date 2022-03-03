@@ -1,7 +1,5 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SensorReadings.Domain.Test
 {
@@ -38,16 +36,6 @@ namespace SensorReadings.Domain.Test
             Assert.IsInstanceOf<IEnumerable<Reading>>(reading.Temperatures);
             Assert.IsInstanceOf<IEnumerable<Reading>>(reading.Humidities);
             Assert.IsInstanceOf<IEnumerable<Reading>>(reading.Rainfalls);
-        }
-
-        [Test]
-        public void ReadingsSet_Resturns_TemperatureReadings()
-        {
-            //Arrange
-
-            //Act
-
-            //Assert
         }
     }
 }

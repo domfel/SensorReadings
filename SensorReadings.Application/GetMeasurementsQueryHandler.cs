@@ -18,8 +18,7 @@ namespace SensorReadings.Application
 
         public async Task<MeasurementsResponse> Execute(GetMeasurementsQuery query)
         {
-            var date = DateTime.Parse(query.MeasurementDate);            
-
+            var date = DateTime.Parse(query.MeasurementDate);
 
             _readingArchive.InitializeArchive(query.DeviceName, date);
             await _readingArchive.SetReadingsAsync();

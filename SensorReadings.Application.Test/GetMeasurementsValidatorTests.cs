@@ -14,7 +14,7 @@ namespace SensorReadings.Application.Test
             _validator = new GetMeasurementsValidator();
         }
 
-        [TestCase("Id","2010-10-01",true, TestName ="Validate_ReturnsValidWhenPassingValidParams")]
+        [TestCase("Id", "2010-10-01", true, TestName = "Validate_ReturnsValidWhenPassingValidParams")]
         [TestCase("", "2010-10-01", false, TestName = "Validate_ReturnsNotValidWhenPassingEmptyId")]
         [TestCase(null, "2010-10-01", false, TestName = "Validate_ReturnsValidWhenParamsNullId")]
         [TestCase("Id", "", false, TestName = "Validate_ReturnsValidWhenPassingEmptyDate")]
@@ -26,7 +26,7 @@ namespace SensorReadings.Application.Test
             var input = new GetMeasurementsQuery(name, date);
 
             //Act
-            var result =_validator.Validate(input);
+            var result = _validator.Validate(input);
 
             //Assert
             Assert.IsNotNull(result);

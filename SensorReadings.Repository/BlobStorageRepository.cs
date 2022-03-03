@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Text;
 using System.IO.Compression;
-using System.Threading;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
 using System.IO;
@@ -118,7 +116,7 @@ namespace SensorReadings.Repository
         }
 
         public async Task<DataState> IsHitoricData(string deviceId, DateTime date, ReadingType readingType = ReadingType.Humidity)
-        {   
+        {
             var csvBlobClient = _container.GetBlobClient(GetFileName(deviceId, readingType, date));
             if (await csvBlobClient.ExistsAsync())
             {

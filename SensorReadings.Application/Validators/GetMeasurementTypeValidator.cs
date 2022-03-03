@@ -9,8 +9,8 @@ namespace SensorReadings.Application.Validators
         public GetMeasurementTypeValidator(AbstractValidator<GetMeasurementsQuery> baseValidator)
         {
             Include(baseValidator);
-            
-            RuleFor(x => x.MeasurementType)               
+
+            RuleFor(x => x.MeasurementType)
                 .IsEnumName(typeof(ReadingType));
         }
     }
