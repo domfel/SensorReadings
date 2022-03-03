@@ -19,8 +19,8 @@ namespace SensorReadings.Domain.Test
             var reading = new Reading(DateTime.Now, "123,123");
 
             //Assert
-            Assert.IsInstanceOf<DateTime>(reading.d);
-            Assert.IsInstanceOf<string>(reading.v);
+            Assert.IsInstanceOf<string>(reading.T);
+            Assert.IsInstanceOf<string>(reading.V);
         }
     }
 }
